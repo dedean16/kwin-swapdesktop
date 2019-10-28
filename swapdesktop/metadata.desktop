@@ -1,5 +1,5 @@
 [Desktop Entry]
-Comment=Swap the windows of the current desktop with those of the next/previous. Default shortcuts: Meta+Shift+Alt+Left/Right.
+Comment=Swap the windows of the current desktop with those of the next/previous/upper/lower desktop. When swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible. Default shortcuts: Meta+Shift+Alt+Right/Left/Up/Down. https://github.com/dedean16/kwin-swapdesktop
 Icon=preferences-desktop-virtual
 Name=Swap Desktop
 Type=Service
