@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=Swap the windows of the current desktop with those of the next/previous. Default shortcuts: Meta+Shift+Alt+Left/Right.
+Icon=preferences-desktop-virtual
+Name=Swap Desktop
+Type=Service
+X-KDE-PluginInfo-Author=Daniël Cox
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-Email=danielcox16@gmail.com
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-Name=swapdesktop
+X-KDE-PluginInfo-Version=1.0
+X-KDE-ServiceTypes=KWin/Script
+X-Plasma-API=javascript
+X-Plasma-MainScript=code/main.js
