@@ -35,15 +35,15 @@ function swapDesktop(n) {
 }
 
 
-if (KWin.registerShortcut) {                                    /* Check if the register function actually exists */
+if (registerShortcut) {                                         /* Check if the register function actually exists */
     
-    Kwin.registerShortcut("Swap with Next Desktop",             /* Register shortcut for 'swap with next desktop' */
+    registerShortcut("Swap Desktop: Swap with Next Desktop",    /* Register shortcut for 'swap with next desktop' */
                           "Swap all windows from the current desktop with the next one.",
                           "Meta+Shift+Alt+Right",
-                          swapDesktop(1));
+                          function() {swapDesktop(1);});
     
-    Kwin.registerShortcut("Swap with Previous Desktop",         /* Register shortcut for 'swap with previous desktop' */
+    registerShortcut("Swap Desktop: Swap with Previous Desktop",/* Register shortcut for 'swap with previous desktop' */
                           "Swap all windows from the current desktop with the previous one.",
                           "Meta+Shift+Alt+Left",
-                          swapDesktop(-1));
+                          function() {swapDesktop(-1);});
 }
