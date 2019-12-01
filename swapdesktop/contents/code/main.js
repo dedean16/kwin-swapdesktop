@@ -61,25 +61,49 @@ function swapDesktop(n) {
 }
 
 
+function addDesktops(n, addindex) {
+    /* n is number of desktops to add */
+    workspace.desktops = workspace.desktops + n;                /* Increase number of desktops by n */
+    
+    workspace.clientList().forEach(                             /* Loop over all windows */
+        function(w, i) {
+            if (w.desktop >= addindex) {                        /* If window desktop has index addindex or higher */
+                w.desktop = w.desktop + n;                      /* Move window n desktops further */
+            }
+        }
+    );
+}
+
+
 if (registerShortcut) {                                         /* Check if the register function actually exists */
     
     registerShortcut("Swap with Next Desktop",                  /* Register shortcut for 'swap with next desktop' */
-                          "SWAP DESKTOP: Swap current desktop with next one.",
-                          "Meta+Shift+Alt+Right",
-                          function() {swapDesktop(1);});
+                     "DESKTOPS: Swap current desktop with next one.",
+                     "Meta+Shift+Alt+Right",
+                     function() {swapDesktop(1);});
     
     registerShortcut("Swap with Previous Desktop",              /* Register shortcut for 'swap with previous desktop' */
-                          "SWAP DESKTOP: Swap current desktop with previous one.",
-                          "Meta+Shift+Alt+Left",
-                          function() {swapDesktop(-1);});
+                     "DESKTOPS: Swap current desktop with previous one.",
+                     "Meta+Shift+Alt+Left",
+                     function() {swapDesktop(-1);});
 
     registerShortcut("Swap with Above Desktop",                 /* Register shortcut for 'swap with above desktop' */
-                          "SWAP DESKTOP: Swap current desktop with one above.",
-                          "Meta+Shift+Alt+Up",
-                          function() {swapDesktop(-workspace.desktopGridWidth);});
+                     "DESKTOPS: Swap current desktop with one above.",
+                     "Meta+Shift+Alt+Up",
+                     function() {swapDesktop(-workspace.desktopGridWidth);});
     
     registerShortcut("Swap with Below Desktop",                 /* Register shortcut for 'swap with below desktop' */
-                          "SWAP DESKTOP: Swap current desktop with one below.",
-                          "Meta+Shift+Alt+Down",
-                          function() {swapDesktop(workspace.desktopGridWidth);});
+                     "DESKTOPS: Swap current desktop with one below.",
+                     "Meta+Shift+Alt+Down",
+                     function() {swapDesktop(workspace.desktopGridWidth);});
+    
+    registerShortcut("Add Desktop",                             /* Register shortcut for 'add desktop' */
+                     "DESKTOPS: Add new desktop between previous and current one.",
+                     "Meta+Alt++",
+                     function() {addDesktops(1, workspace.currentDesktop);});
+
+    registerShortcut("Remove Desktop",                          /* Register shortcut for 'insert desktop' */
+                     "DESKTOPS: Remove current desktop and move its windows to the next.",
+                     "Meta+Alt+_",
+                     function() {addDesktops(-1, workspace.currentDesktop + 1);});
 }
