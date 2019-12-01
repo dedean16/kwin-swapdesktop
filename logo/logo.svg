@@ -15,7 +15,7 @@
    viewBox="0 0 97.895836 59.049998"
    version="1.1"
    id="svg8"
-   inkscape:export-filename="/home/daniel/Dropbox/Private/Code/KWin/kwin-swapdesktop//logo2.png"
+   inkscape:export-filename="/home/daniel/Dropbox/Private/Code/KWin/kwin-swapdesktop//logo3-img.png"
    inkscape:export-xdpi="250.66664"
    inkscape:export-ydpi="250.66664"
    inkscape:version="0.92.4 5da689c313, 2019-01-14"
@@ -24,10 +24,10 @@
      id="defs2" />
   <sodipodi:namedview
      id="base"
-     pagecolor="#ffffff"
+     pagecolor="#929292"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.8"
      inkscape:cx="179.16555"
@@ -41,7 +41,7 @@
      fit-margin-bottom="20"
      inkscape:showpageshadow="false"
      inkscape:window-width="1920"
-     inkscape:window-height="989"
+     inkscape:window-height="993"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
@@ -58,10 +58,11 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Layer 1"
+     inkscape:label="Img"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-29.671129,-89.826187)">
+     transform="translate(-29.671129,-89.826187)"
+     style="display:inline">
     <image
        y="109.82619"
        x="29.671129"
@@ -70,50 +71,88 @@
        preserveAspectRatio="none"
        height="19.049999"
        width="97.895836" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Symbols"
+     style="display:inline">
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:14.75059986px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.368765"
-       x="56.960899"
-       y="121.76157"
+       x="27.28977"
+       y="32.464554"
        id="text4540"><tspan
          sodipodi:role="line"
          id="tspan4538"
-         x="56.960899"
-         y="121.76157"
+         x="27.28977"
+         y="32.464554"
          style="stroke-width:0.368765">↷</tspan></text>
     <use
        x="0"
        y="0"
        xlink:href="#text4540"
        id="use4542"
-       transform="rotate(-180,62.294472,119.75459)"
+       transform="rotate(180,32.623342,29.928403)"
        width="100%"
        height="100%"
        style="fill:#fcffff;fill-opacity:1;stroke:#ffffff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
+       transform="translate(-29.671129,-89.826187)"
+       id="text822"
+       y="118.3546"
+       x="35.491959"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#067107;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888931px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#067107;fill-opacity:1;stroke-width:0.26458332"
+         y="118.3546"
+         x="35.491959"
+         id="tspan820"
+         sodipodi:role="line">+</tspan></text>
+    <text
+       transform="translate(-29.671129,-89.826187)"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#067107;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="80.187645"
+       y="129.12692"
+       id="text826"><tspan
+         sodipodi:role="line"
+         x="80.187645"
+         y="129.12692"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.63888931px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#da4453;fill-opacity:1;stroke-width:0.26458332"
+         id="tspan828">-</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Text"
+     style="display:inline">
+    <text
+       transform="translate(-29.671129,-89.826187)"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="49.798363"
-       y="106.73183"
+       x="29.746725"
+       y="106.44835"
        id="text4521"><tspan
          sodipodi:role="line"
          id="tspan4519"
-         x="49.798363"
-         y="106.73183"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Swap</tspan></text>
+         x="29.746725"
+         y="106.44835"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Swap/Add/Remove</tspan></text>
     <text
+       transform="translate(-29.671129,-89.826187)"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="41.527184"
-       y="138.30206"
+       x="30.509176"
+       y="136.65787"
        id="text4521-3"
        inkscape:export-filename="/home/daniel/logo2.png"
        inkscape:export-xdpi="250.66664"
        inkscape:export-ydpi="250.66664"><tspan
          sodipodi:role="line"
          id="tspan4519-9"
-         x="41.527184"
-         y="138.30206"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Desktop</tspan></text>
+         x="30.509176"
+         y="136.65787"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05555534px;font-family:'Droid Sans Mono';-inkscape-font-specification:'Droid Sans Mono, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Virtual Desktop</tspan></text>
   </g>
 </svg>
