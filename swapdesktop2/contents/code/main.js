@@ -12,98 +12,51 @@
 *   GNU General Public License for more details.
 */
 
-function swapDesktop(n) {
-    /* n is the relative desktop number to swap to */
-    var newdesktop = workspace.currentDesktop + n;              /* Desktop index of desktop to swap to */
-    
-    if (newdesktop >= 1 && newdesktop <= workspace.desktops) {
-        workspace.clientList().forEach(                         /* Loop over all windows */
-            function(w, i) {
-                
-                if (w.desktop == workspace.currentDesktop) {    /* If on current */
-                    w.desktop = newdesktop;                     /* Swap window to new */
-                    
-                } else if (w.desktop == newdesktop) {           /* If on new */
-                    w.desktop = workspace.currentDesktop;       /* Swap window to current */
-                }
-                
-            }
-        );
-        workspace.currentDesktop = newdesktop;
-        
-    } else if (newdesktop == 0) {
-        workspace.desktops++;                                   /* Add extra desktop */
-        
-        workspace.clientList().forEach(
-            function(w, i) {
-                
-                if (w.desktop > 1) {
-                    w.desktop++;                                /* Move all windows forward except from first first desktop */
-                }
-                
-            }
-        );
-        
-    } else if (newdesktop == workspace.desktops + 1) {
-        workspace.desktops++;                                   /* Add extra desktop */
-        
-        workspace.clientList().forEach(
-            function(w, i) {
-                
-                if (w.desktop == workspace.currentDesktop) {
-                    w.desktop = newdesktop;                     /* Move windows from current desktop to new one */
-                }
-                
-            }
-        );
-        workspace.currentDesktop = newdesktop;
-    }
+function swap_desktops(n) {
+    // Swap desktops
+    print('To be implemented');
 }
 
+function get_current_desktop_index() {
+    var current_index = workspace.desktops.indexOf(workspace.currentDesktop);
+    return current_index;
+}
 
-function addDesktops(n, addindex) {
-    /* n is number of desktops to add */
-    workspace.desktops = workspace.desktops + n;                /* Increase number of desktops by n */
-    
-    workspace.clientList().forEach(                             /* Loop over all windows */
-        function(w, i) {
-            if (w.desktop >= addindex) {                        /* If window desktop has index addindex or higher */
-                w.desktop = w.desktop + n;                      /* Move window n desktops further */
-            }
-        }
-    );
+function add_desktop(relative_index) {
+    // Create a new virtual desktop at the end of the current set of desktops
+    workspace.createDesktop(get_current_desktop_index() + relative_index, "New Desktop");
 }
 
 
 if (registerShortcut) {                                         /* Check if the register function actually exists */
     
     registerShortcut("Swap with Next Desktop",                  /* Register shortcut for 'swap with next desktop' */
-                     "swapdesktop: Swap current desktop with next one.",
+                     "swapdesktop2: Swap current desktop with next one (temp)",
                      "Meta+Shift+Alt+Right",
-                     function() {swapDesktop(1);});
+                     function() {swap_desktop(1);});
     
     registerShortcut("Swap with Previous Desktop",              /* Register shortcut for 'swap with previous desktop' */
-                     "swapdesktop: Swap current desktop with previous one.",
+                     "swapdesktop2: Swap current desktop with previous one (temp)",
                      "Meta+Shift+Alt+Left",
-                     function() {swapDesktop(-1);});
+                     function() {swap_desktop(-1);});
 
     registerShortcut("Swap with Above Desktop",                 /* Register shortcut for 'swap with above desktop' */
-                     "swapdesktop: Swap current desktop with one above.",
+                     "swapdesktop2: Swap current desktop with one above (temp)",
                      "Meta+Shift+Alt+Up",
-                     function() {swapDesktop(-workspace.desktopGridWidth);});
+                     function() {swap_desktop(-workspace.desktopGridWidth);});
     
     registerShortcut("Swap with Below Desktop",                 /* Register shortcut for 'swap with below desktop' */
-                     "swapdesktop: Swap current desktop with one below.",
+                     "swapdesktop2: Swap current desktop with one below (temp)",
                      "Meta+Shift+Alt+Down",
-                     function() {swapDesktop(workspace.desktopGridWidth);});
+                     function() {swap_desktop(workspace.desktopGridWidth);});
     
     registerShortcut("Add Desktop",                             /* Register shortcut for 'add desktop' */
-                     "swapdesktop: Add new desktop between previous and current one.",
+                     "swapdesktop2: Add new desktop between previous and current one (temp)",
                      "Meta+Alt++",
-                     function() {addDesktops(1, workspace.currentDesktop);});
+                     function() {add_desktop(1);});
 
     registerShortcut("Remove Desktop",                          /* Register shortcut for 'insert desktop' */
-                     "swapdesktop: Remove current desktop and move its windows to the next.",
+                     "swapdesktop2: Remove current desktop and move its windows to the next (temp)",
                      "Meta+Alt+_",
-                     function() {addDesktops(-1, workspace.currentDesktop + 1);});
+                     function() {workspace.removeDesktop(workspace.currentDesktop);});
 }
