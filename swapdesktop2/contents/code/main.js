@@ -59,6 +59,9 @@ function remove_current_desktop(relative_index) {
 
     // Remove the desktop
     workspace.removeDesktop(workspace.currentDesktop);
+
+    // Set new current desktop
+    workspace.currentDesktop = destination_desktop;
 }
 
 
