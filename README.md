@@ -7,7 +7,8 @@ Default shortcuts are: Meta+Shift+Alt+Right/Left/Up/Down/=/-. These can be chang
 ## To do: add gif animation of swap
 
 ## For developers
-Cleanup of leftover components can be done with:
+
+Cleanup of leftover components can be done by loggin out/in and running:
 
 `qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.cleanUp`
 
