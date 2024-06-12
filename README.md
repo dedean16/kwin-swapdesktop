@@ -4,6 +4,13 @@ Adds keyboard shortcuts to KWin that swap the windows of the current virtual des
 
 Default shortcuts are: Meta+Shift+Alt+Right/Left/Up/Down/=/-. These can be changed in System Settings → Global Shortcuts → KWin → (search for swapdesktop)
 
+## To do: add gif animation of swap
+
+## For developers
+Cleanup of leftover components can be done with:
+
+`qdbus org.kde.kglobalaccel /component/kwin org.kde.kglobalaccel.Component.cleanUp`
+
 ## References
 
 1. Plasma scripting API: <https://develop.kde.org/docs/plasma/kwin/api/>
