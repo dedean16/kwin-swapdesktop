@@ -46,50 +46,48 @@ function swap_desktops(relative_index) {
     new_index = current_index + relative_index;
 
     if (new_index < 0) {
-        print('to be implemented');
-    } else if (new_index >= workspace.desktops.length) {
+        add_desktop_abs(0);
+    } else if (new_index == workspace.desktops.length) {
         add_desktop_abs(workspace.desktops.length);
-        print('to be implemented');
-    } else {
-        swap_desktops_abs(current_index, new_index);
     }
+    swap_desktops_abs(current_index, new_index);
 }
 
 
 if (registerShortcut) {                                         /* Check if the register function actually exists */
     
-    registerShortcut("Swap with Next Desktop",                  /* Register shortcut for 'swap with next desktop' */
-                     "swapdesktop2: Swap current desktop with next one (temp)",
+    registerShortcut("Swap with Next Desktop (temp2)",                  /* Register shortcut for 'swap with next desktop' */
+                     "swapdesktop2: Swap current desktop with next one (temp2)",
                      "Meta+Shift+Alt+Right",
                      function() {swap_desktop(1);});
     
-    registerShortcut("Swap with Previous Desktop",              /* Register shortcut for 'swap with previous desktop' */
-                     "swapdesktop2: Swap current desktop with previous one (temp)",
+    registerShortcut("Swap with Previous Desktop (temp2)",              /* Register shortcut for 'swap with previous desktop' */
+                     "swapdesktop2: Swap current desktop with previous one (temp2)",
                      "Meta+Shift+Alt+Left",
                      function() {swap_desktop(-1);});
 
-    registerShortcut("Swap with Above Desktop",                 /* Register shortcut for 'swap with above desktop' */
-                     "swapdesktop2: Swap current desktop with one above (temp)",
+    registerShortcut("Swap with Above Desktop (temp2)",                 /* Register shortcut for 'swap with above desktop' */
+                     "swapdesktop2: Swap current desktop with one above (temp2)",
                      "Meta+Shift+Alt+Up",
                      function() {swap_desktop(-workspace.desktopGridWidth);});
     
-    registerShortcut("Swap with Below Desktop",                 /* Register shortcut for 'swap with below desktop' */
-                     "swapdesktop2: Swap current desktop with one below (temp)",
+    registerShortcut("Swap with Below Desktop (temp2)",                 /* Register shortcut for 'swap with below desktop' */
+                     "swapdesktop2: Swap current desktop with one below (temp2)",
                      "Meta+Shift+Alt+Down",
                      function() {swap_desktop(workspace.desktopGridWidth);});
     
-    registerShortcut("Add Desktop After Current",                             /* Register shortcut for 'add desktop' */
-                     "swapdesktop2: Add new desktop between current and next (temp)",
+    registerShortcut("Add Desktop After Current (temp2)",                             /* Register shortcut for 'add desktop' */
+                     "swapdesktop2: Add new desktop between current and next (temp2)",
                      "Meta+Alt++",
                      function() {add_desktop(1);});
     
-    registerShortcut("Add Desktop Before Current",                             /* Register shortcut for 'add desktop' */
-                     "swapdesktop2: Add new desktop between previous and current (temp)",
+    registerShortcut("Add Desktop Before Current (temp2)",                             /* Register shortcut for 'add desktop' */
+                     "swapdesktop2: Add new desktop between previous and current (temp2)",
                      "Meta+Alt+=",
                      function() {add_desktop(0);});
 
-    registerShortcut("Remove Desktop",                          /* Register shortcut for 'remove desktop' */
-                     "swapdesktop2: Remove current desktop and move its windows to the next (temp)",
+    registerShortcut("Remove Desktop (temp2)",                          /* Register shortcut for 'remove desktop' */
+                     "swapdesktop2: Remove current desktop and move its windows to the next (temp2)",
                      "Meta+Alt+-",
                      function() {workspace.removeDesktop(workspace.currentDesktop);});
 }
