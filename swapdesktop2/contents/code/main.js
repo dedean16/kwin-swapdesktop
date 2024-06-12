@@ -78,32 +78,32 @@ function addDesktops(n, addindex) {
 if (registerShortcut) {                                         /* Check if the register function actually exists */
     
     registerShortcut("Swap with Next Desktop",                  /* Register shortcut for 'swap with next desktop' */
-                     "DESKTOPS: Swap current desktop with next one.",
+                     "swapdesktop: Swap current desktop with next one.",
                      "Meta+Shift+Alt+Right",
                      function() {swapDesktop(1);});
     
     registerShortcut("Swap with Previous Desktop",              /* Register shortcut for 'swap with previous desktop' */
-                     "DESKTOPS: Swap current desktop with previous one.",
+                     "swapdesktop: Swap current desktop with previous one.",
                      "Meta+Shift+Alt+Left",
                      function() {swapDesktop(-1);});
 
     registerShortcut("Swap with Above Desktop",                 /* Register shortcut for 'swap with above desktop' */
-                     "DESKTOPS: Swap current desktop with one above.",
+                     "swapdesktop: Swap current desktop with one above.",
                      "Meta+Shift+Alt+Up",
                      function() {swapDesktop(-workspace.desktopGridWidth);});
     
     registerShortcut("Swap with Below Desktop",                 /* Register shortcut for 'swap with below desktop' */
-                     "DESKTOPS: Swap current desktop with one below.",
+                     "swapdesktop: Swap current desktop with one below.",
                      "Meta+Shift+Alt+Down",
                      function() {swapDesktop(workspace.desktopGridWidth);});
     
     registerShortcut("Add Desktop",                             /* Register shortcut for 'add desktop' */
-                     "DESKTOPS: Add new desktop between previous and current one.",
+                     "swapdesktop: Add new desktop between previous and current one.",
                      "Meta+Alt++",
                      function() {addDesktops(1, workspace.currentDesktop);});
 
     registerShortcut("Remove Desktop",                          /* Register shortcut for 'insert desktop' */
-                     "DESKTOPS: Remove current desktop and move its windows to the next.",
+                     "swapdesktop: Remove current desktop and move its windows to the next.",
                      "Meta+Alt+_",
                      function() {addDesktops(-1, workspace.currentDesktop + 1);});
 }
