@@ -38,9 +38,9 @@ function remove_current_desktop(relative_index) {
     // Compute new desktop index
     var new_index = get_current_desktop_index() + relative_index;
     if (new_index < 0) {
-        new_index = 0
+        new_index = 1
     } else if (new_index >= workspace.desktops.length) {
-        new_index = workspace.desktops.length - 1;
+        new_index = workspace.desktops.length - 2;
     }
 
     // Initialize
@@ -48,6 +48,7 @@ function remove_current_desktop(relative_index) {
     var all_windows = workspace.windowList();
     var current_desktop_windows = [];
     var destination_desktop = all_desktops[new_index];
+    var desktop_to_be_removed = workspace.currentDesktop;
 
     // Make lists of windows on current desktop
     for (var w = 0; w<all_windows.length; w++) {
@@ -57,11 +58,11 @@ function remove_current_desktop(relative_index) {
         }
     }
 
-    // Remove the desktop
-    workspace.removeDesktop(workspace.currentDesktop);
-
     // Set new current desktop
     workspace.currentDesktop = destination_desktop;
+
+    // Remove the desktop
+    workspace.removeDesktop(desktop_to_be_removed);
 }
 
 
