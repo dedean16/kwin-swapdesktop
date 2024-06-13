@@ -118,43 +118,43 @@ function swap_desktop(relative_index) {
 
 if (registerShortcut) {    /* Check if the register function actually exists */
     
-    registerShortcut("Swap windows with next desktop (temp5)",
-                     "swapdesktop2: Swap current desktop with next one (temp5)",
+    registerShortcut("Swap windows with next desktop",
+                     "swapdesktop2: Swap current desktop with next one",
                      "Meta+Shift+Alt+Right",
                      function() {swap_desktop(1);});
 
-    registerShortcut("Swap windows with previous desktop (temp5)",
-                     "swapdesktop2: Swap current desktop with previous one (temp5)",
+    registerShortcut("Swap windows with previous desktop",
+                     "swapdesktop2: Swap current desktop with previous one",
                      "Meta+Shift+Alt+Left",
                      function() {swap_desktop(-1);});
 
-    registerShortcut("Swap with above desktop (temp5)",
-                     "swapdesktop2: Swap current desktop with one above (temp5)",
+    registerShortcut("Swap with above desktop",
+                     "swapdesktop2: Swap current desktop with one above",
                      "Meta+Shift+Alt+Up",
                      function() {swap_desktop(-workspace.desktopGridWidth);});
 
-    registerShortcut("Swap with below desktop (temp5)",
-                     "swapdesktop2: Swap current desktop with one below (temp5)",
+    registerShortcut("Swap with below desktop",
+                     "swapdesktop2: Swap current desktop with one below",
                      "Meta+Shift+Alt+Down",
                      function() {swap_desktop(workspace.desktopGridWidth);});
 
-    registerShortcut("Add desktop after current (temp5)",
-                     "swapdesktop2: Add new desktop between current and next (temp5)",
+    registerShortcut("Add desktop after current",
+                     "swapdesktop2: Add new desktop between current and next",
                      "Meta+Alt++",
                      function() {add_desktop(1);});
 
-    registerShortcut("Add desktop before current (temp5)",
-                     "swapdesktop2: Add new desktop between previous and current (temp5)",
+    registerShortcut("Add desktop before current",
+                     "swapdesktop2: Add new desktop between previous and current",
                      "Meta+Alt+=",
                      function() {add_desktop(0);});
 
-    registerShortcut("Remove desktop, move windows to previous (temp5)",
-                     "swapdesktop2: Remove current desktop and move its windows to the previous (temp5)",
+    registerShortcut("Remove desktop, move windows to previous",
+                     "swapdesktop2: Remove current desktop and move its windows to the previous",
                      "Meta+Alt+_",
                      function() {remove_current_desktop(1);});
 
-    registerShortcut("Remove desktop, move windows to next (temp5)",
-                     "swapdesktop2: Remove current desktop and move its windows to the next (temp5)",
+    registerShortcut("Remove desktop, move windows to next",
+                     "swapdesktop2: Remove current desktop and move its windows to the next",
                      "Meta+Alt+-",
                      function() {remove_current_desktop(-1);});
 }
