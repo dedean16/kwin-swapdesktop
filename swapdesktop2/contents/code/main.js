@@ -38,9 +38,9 @@ function remove_current_desktop(relative_index) {
     // Compute new desktop index
     var new_index = get_current_desktop_index() + relative_index;
     if (new_index < 0) {
-        new_index = 1
+        new_index = 1;      // Note: desktop 0 will be deleted
     } else if (new_index >= workspace.desktops.length) {
-        new_index = workspace.desktops.length - 2;
+        new_index = workspace.desktops.length - 2;      // Note: desktop length-1 will be deleted
     }
 
     // Initialize
@@ -100,12 +100,14 @@ function swap_desktop(relative_index) {
     new_index = current_index + relative_index;
 
     // Add new desktop to make swap possible, if required
-    if (new_index < 0) {
+    if (new_index == -1) {
         add_desktop_abs(0);
         current_index++;
         new_index++;
     } else if (new_index == workspace.desktops.length) {
         add_desktop_abs(workspace.desktops.length);
+    } else if (new_index < -1 || new_index > workspace.desktops.length) {
+        return;     // Swapping to non-existing desktops is not supported (except for index -1 and index last, which will trigger an add.)
     }
 
     swap_desktop_abs(current_index, new_index);
