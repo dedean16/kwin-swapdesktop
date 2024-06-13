@@ -6,7 +6,7 @@ Adds keyboard shortcuts to KWin that swap the windows of the current virtual des
 
 Updated to the Plasma 6 API. Works with both Wayland and X11.
 
-Quick demo video: (https://www.youtube.com/watch?v=TOOlC8laRNQ)
+Quick demo video: https://www.youtube.com/watch?v=TOOlC8laRNQ
 
 Default shortcuts are:
  - Add new desktop between current and next: Meta+Shift+Alt++
