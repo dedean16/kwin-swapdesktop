@@ -7,8 +7,8 @@ Updated to the Plasma 6 API. Works with both Wayland and X11.
 Default shortcuts are:
  - Add new desktop between current and next: Meta+Shift+Alt++
  - Add new desktop between previous and current: Meta+Alt+=
- - Remove current desktop and move its windows to next: Meta+Shift+Alt+-
  - Remove current desktop and move its windows to next: Meta+Shift+Alt+_
+ - Remove current desktop and move its windows to previous: Meta+Alt+-
  - Swap current desktop's windows with next one: Meta+Shift+Alt+Right
  - Swap current desktop's windows with one above: Meta+Shift+Alt+Up
  - Swap current desktop's windows with one below: Meta+Shift+Alt+Down

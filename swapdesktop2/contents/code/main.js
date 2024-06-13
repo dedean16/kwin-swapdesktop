@@ -149,12 +149,12 @@ if (registerShortcut) {    /* Check if the register function actually exists */
                      function() {add_desktop(0);});
 
     registerShortcut("Remove desktop, move windows to previous",
-                     "swapdesktop2: Remove current desktop and move its windows to the previous",
+                     "swapdesktop2: Remove current desktop and move its windows to the next",
                      "Meta+Alt+_",
                      function() {remove_current_desktop(1);});
 
     registerShortcut("Remove desktop, move windows to next",
-                     "swapdesktop2: Remove current desktop and move its windows to the next",
+                     "swapdesktop2: Remove current desktop and move its windows to the previous",
                      "Meta+Alt+-",
                      function() {remove_current_desktop(-1);});
 }
