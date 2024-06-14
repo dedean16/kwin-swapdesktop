@@ -2,23 +2,24 @@
 
 <img src="logo/logo4_rect.png" height="180"/>
 
-Adds keyboard shortcuts to KWin that swap the windows of the current virtual desktop with those of the next/previous/upper/lower desktop, add a desktop at/after the current position, or remove the current desktop (and move its windows to the previous/next desktop). When swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible.
+Adds keyboard shortcuts to KWin for swapping, adding and removing virtual desktops. When swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible.
 
 Updated to the Plasma 6 API. Works with both Wayland and X11.
 
-Quick demo video: https://www.youtube.com/watch?v=TOOlC8laRNQ
-
 Default shortcuts are:
- - Add new desktop between current and next: Meta+Shift+Alt++
- - Add new desktop between previous and current: Meta+Alt+=
- - Remove current desktop and move its windows to next: Meta+Shift+Alt+_
- - Remove current desktop and move its windows to previous: Meta+Alt+-
- - Swap current desktop's windows with next one: Meta+Shift+Alt+Right
- - Swap current desktop's windows with one above: Meta+Shift+Alt+Up
- - Swap current desktop's windows with one below: Meta+Shift+Alt+Down
- - Swap current desktop's windows with previous one: Meta+Shift+Alt+Left
+- Swap the current desktop's windows with next one: Meta+Shift+Alt+Right
+- Swap the current desktop's windows with one above: Meta+Shift+Alt+Up
+- Swap the current desktop's windows with one below: Meta+Shift+Alt+Down
+- Swap the current desktop's windows with previous one: Meta+Shift+Alt+Left
+- Add new desktop between current and next: Meta+Shift+Alt++
+- Add new desktop between previous and current: Meta+Alt+=
+- Remove current desktop and move its windows to next: Meta+Shift+Alt+_
+- Remove current desktop and move its windows to previous: Meta+Alt+-
 
 These can be changed in System Settings → Global Shortcuts → KWin → (search for swapdesktop2)
+
+Quick demo video: https://www.youtube.com/watch?v=TOOlC8laRNQ
+
 
 ## For developers
 

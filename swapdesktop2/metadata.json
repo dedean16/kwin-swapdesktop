@@ -1,7 +1,7 @@
 {
     "KPlugin": {
         "Name": "Swap/Add/Remove Desktop Shortcuts v2.0",
-        "Description": "Adds keyboard shortcuts to KWin that swap the windows of the current virtual desktop with those of the next/previous/upper/lower desktop, add a desktop at/after the current position, or remove the current desktop (and move its windows to the previous/next desktop). When swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible. Updated to the Plasma 6 API. Works with both Wayland and X11. Default shortcuts are: Meta+(Shift)+Alt+Right/Left/Up/Down/=/-. These can be changed in System Settings → Global Shortcuts → KWin → (search for swapdesktop2)",
+        "Description": "Adds keyboard shortcuts to KWin for swapping the windows of the current virtual desktop with those of the next/previous/upper/lower desktop, adding a desktop at/after the current position, and removing the current desktop (and move its windows to the previous/next desktop). When swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible. Updated to the Plasma 6 API. Works with both Wayland and X11. Default shortcuts are: Meta+(Shift)+Alt+Right/Left/Up/Down/=/-. These can be changed in System Settings → Global Shortcuts → KWin → (search for swapdesktop2)",
         "Icon": "preferences-desktop-virtual",
         
         "Authors": [
