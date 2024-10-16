@@ -71,12 +71,12 @@ function swap_desktop_abs(index1, index2) {
     // Note: Doesn't check if desktops at those indices exist
 
     // Initialize
-    all_desktops = workspace.desktops;
-    all_windows = workspace.windowList();
-    desktop1_windows = [];
-    desktop2_windows = [];
-    desktop1 = all_desktops[index1];
-    desktop2 = all_desktops[index2];
+    var all_desktops = workspace.desktops;
+    var all_windows = workspace.windowList();
+    var desktop1_windows = [];
+    var desktop2_windows = [];
+    var desktop1 = all_desktops[index1];
+    var desktop2 = all_desktops[index2];
 
     // Make lists of windows on desktop1 and desktop2
     for (var w = 0; w<all_windows.length; w++) {
@@ -96,8 +96,8 @@ function swap_desktop_abs(index1, index2) {
 
 function swap_desktop(relative_index) {
     // Add desktop if required, swap desktops, focus swapped desktop
-    current_index = get_current_desktop_index();
-    new_index = current_index + relative_index;
+    var current_index = get_current_desktop_index();
+    var new_index = current_index + relative_index;
 
     // Add new desktop to make swap possible, if required
     if (new_index == -1) {
