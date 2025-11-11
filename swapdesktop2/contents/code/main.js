@@ -99,19 +99,26 @@ function swap_desktop(relative_index) {
     var current_index = get_current_desktop_index();
     var new_index = current_index + relative_index;
 
-    // Add new desktop to make swap possible, if required
-    if (new_index == -1) {
+    // Check if Dynamic Desktops mode is enabled. If enabled, empty desktops are added/removed automatically when swapping the first or last one.
+    var doDynamicDesktopSwap = readConfig("dynamicDesktopSwap", true);
+
+    // Add new desktop to make swap possible, if required. Or block at first/last if Dynamic Desktops is off.
+    if (new_index == -1 && doDynamicDesktopSwap) {
         add_desktop_abs(0);
         current_index++;
         new_index++;
-    } else if (new_index == workspace.desktops.length) {
+    } else if (new_index == workspace.desktops.length && doDynamicDesktopSwap) {
         add_desktop_abs(workspace.desktops.length);
+    } else if ((new_index == -1 || new_index == workspace.desktops.length) && !doDynamicDesktopSwap){
+        return;     // Swapping over first/last desktop is blocked when dynamic desktops is off
     } else if (new_index < -1 || new_index > workspace.desktops.length) {
-        return;     // Swapping to non-existing desktops is not supported (except for index -1 and index last, which will trigger an add.)
+        return;     // Swapping to non-existing desktops is not supported (except optionally for index -1 and index last, see above cases)
     }
 
+    // Swap windows of desktops
     swap_desktop_abs(current_index, new_index);
 
+    // Update current desktop index
     workspace.currentDesktop = workspace.desktops[new_index];
 }
 

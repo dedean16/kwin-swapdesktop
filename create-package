@@ -1,3 +1,6 @@
 #!/bin/bash
+
+# Note: this script uses the zip package to create a zip file
+
 cd swapdesktop2
 zip ../swapdesktop2.kwinscript contents/*/* metadata.json
