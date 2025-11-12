@@ -6,7 +6,7 @@
     <kcfgfile name=""/>
 
     <group name="">
-        <entry name="dynamicDesktopSwap" type="Bool">
+        <entry name="infiniteSwap" type="Bool">
             <default>true</default>
         </entry>
     </group>

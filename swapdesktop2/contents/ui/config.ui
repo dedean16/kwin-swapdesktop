@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>886</width>
-    <height>100</height>
+    <width>769</width>
+    <height>175</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,16 +15,24 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QCheckBox" name="kcfg_dynamicDesktopSwap">
+    <widget class="QCheckBox" name="kcfg_infiniteSwap">
      <property name="text">
-      <string>Dynamic desktops: swapping the first or last desktop will add/remove empty desktops as needed.</string>
+      <string>Infinite Swap mode: swap beyond the existing set</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>(Logout/Login for changes to take effect.)</string>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Noto Sans'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Infinite Swap mode: when swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible. Swapping back from the first/last desktop will remove the leading/trailing desktop (if empty). This allows for a fast workflow where most virtual desktop operations can be achieved by a combination of swapping shortcuts and KDE's built-in desktop selection shortcuts (by default: Meta + Ctrl + Arrow Key).&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(Logout/Login for changes to take effect.)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>

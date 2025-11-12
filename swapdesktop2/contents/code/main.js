@@ -123,22 +123,22 @@ function swap_desktop(relative_index) {
     var new_index = current_index + relative_index;
 
     // Check if Dynamic Desktops mode is enabled. If enabled, empty desktops are added/removed automatically when swapping the first or last one.
-    var doDynamicDesktopSwap = readConfig("dynamicDesktopSwap", true);
+    var doInfiniteSwap = readConfig("infiniteSwap", true);
 
 
     // ==== Deal with edge cases ==== //
     // Add leading desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
-    if (new_index == -1 && doDynamicDesktopSwap) {
+    if (new_index == -1 && doInfiniteSwap) {
         add_desktop_abs(0);
         current_index++;
         new_index++;
 
     // Add trailing desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
-    } else if (new_index == workspace.desktops.length && doDynamicDesktopSwap) {
+    } else if (new_index == workspace.desktops.length && doInfiniteSwap) {
         add_desktop_abs(workspace.desktops.length);
 
     // Swapping over first/last desktop is blocked when dynamic desktops is off
-    } else if ((new_index == -1 || new_index == workspace.desktops.length) && !doDynamicDesktopSwap){
+    } else if ((new_index == -1 || new_index == workspace.desktops.length) && !doInfiniteSwap){
         return;
 
     // Swapping to non-existing desktops is not supported (except optionally for index==-1 and index==last, see previous cases)
@@ -153,7 +153,7 @@ function swap_desktop(relative_index) {
 
 
     // ==== Dynamic remove empty leading/trailing ==== //
-    if (doDynamicDesktopSwap) {
+    if (doInfiniteSwap) {
 
         // If first desktop swapped back and Dynamic Desktop mode is on: remove empty
         if (current_index == 0 && new_index == 1) {
