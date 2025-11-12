@@ -6,15 +6,17 @@ Adds keyboard shortcuts to KWin for swapping, adding and removing virtual deskto
 
 Updated to the Plasma 6 API. Works with both Wayland and X11.
 
-Default shortcuts are:
-- Swap the current desktop's windows with next one: Meta+Shift+Alt+Right
-- Swap the current desktop's windows with one above: Meta+Shift+Alt+Up
-- Swap the current desktop's windows with one below: Meta+Shift+Alt+Down
-- Swap the current desktop's windows with previous one: Meta+Shift+Alt+Left
-- Add new desktop between current and next: Meta+Shift+Alt++
-- Add new desktop between previous and current: Meta+Alt+=
-- Remove current desktop and move its windows to next: Meta+Shift+Alt+_
-- Remove current desktop and move its windows to previous: Meta+Alt+-
+### Default shortcuts
+| Action                                       | Shortcut                    |
+| :------------------------------------------- | :-------------------------- |
+| Swap current desktop with next               | Meta + Shift + Alt + Right  |
+| Swap current desktop with above              | Meta + Shift + Alt + Up     |
+| Swap current desktop with below              | Meta + Shift + Alt + Down   |
+| Swap current desktop with previous           | Meta + Shift + Alt + Left   |
+| Add new desktop after current                | Meta + Shift + Alt + +      |
+| Add new desktop before current               | Meta + Alt + =              |
+| Remove current desktop (merge with next)     | Meta + Shift + Alt + _      |
+| Remove current desktop (merge with previous) | Meta + Alt + -              |
 
 These can be changed in System Settings → Global Shortcuts → KWin → (search for swapdesktop2)
 
