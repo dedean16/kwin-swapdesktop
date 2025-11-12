@@ -1,5 +1,5 @@
 /*
-*   Copyright (c) 2024 Daniël Cox <danielcox16@gmail.com>
+*   Copyright (c) 2025 Daniël Cox <danielcox16@gmail.com>
 *
 *   This program is free software; you can redistribute it and/or modify
 *   it under the terms of the GNU Lesser General Public License as published by
@@ -17,6 +17,26 @@ function get_current_desktop_index() {
     // Return index of current desktop
     var current_index = workspace.desktops.indexOf(workspace.currentDesktop);
     return current_index;
+}
+
+
+function count_windows_on_desktop_abs(index) {
+    // Count the number of windows on the desktop at the given absolute index
+    
+    // Initialize
+    var all_desktops = workspace.desktops;
+    var all_windows = workspace.windowList();
+    var num_windows = 0;
+
+    // Loop over windows and count which ones belong to given desktop
+    for (var w = 0; w<all_windows.length; w++) {
+        var window = all_windows[w];
+        if (window.desktops[0] == all_desktops[index]) {
+            num_windows++;
+        }
+    }
+
+    return num_windows;
 }
 
 
@@ -50,9 +70,9 @@ function remove_current_desktop(relative_index) {
     var destination_desktop = all_desktops[new_index];
     var desktop_to_be_removed = workspace.currentDesktop;
 
-    // Make lists of windows on current desktop
+    // Loop over windows and move the ones from current to destination
     for (var w = 0; w<all_windows.length; w++) {
-       var window = all_windows[w];
+        var window = all_windows[w];
         if (window.desktops[0] == workspace.currentDesktop) {
             window.desktops[0] = destination_desktop;
         }
@@ -96,30 +116,58 @@ function swap_desktop_abs(index1, index2) {
 
 function swap_desktop(relative_index) {
     // Add desktop if required, swap desktops, focus swapped desktop
+
+
+    // ==== Initialize ==== //
     var current_index = get_current_desktop_index();
     var new_index = current_index + relative_index;
 
     // Check if Dynamic Desktops mode is enabled. If enabled, empty desktops are added/removed automatically when swapping the first or last one.
     var doDynamicDesktopSwap = readConfig("dynamicDesktopSwap", true);
 
-    // Add new desktop to make swap possible, if required. Or block at first/last if Dynamic Desktops is off.
+
+    // ==== Deal with edge cases ==== //
+    // Add leading desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
     if (new_index == -1 && doDynamicDesktopSwap) {
         add_desktop_abs(0);
         current_index++;
         new_index++;
+
+    // Add trailing desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
     } else if (new_index == workspace.desktops.length && doDynamicDesktopSwap) {
         add_desktop_abs(workspace.desktops.length);
+
+    // Swapping over first/last desktop is blocked when dynamic desktops is off
     } else if ((new_index == -1 || new_index == workspace.desktops.length) && !doDynamicDesktopSwap){
-        return;     // Swapping over first/last desktop is blocked when dynamic desktops is off
+        return;
+
+    // Swapping to non-existing desktops is not supported (except optionally for index==-1 and index==last, see previous cases)
     } else if (new_index < -1 || new_index > workspace.desktops.length) {
-        return;     // Swapping to non-existing desktops is not supported (except optionally for index -1 and index last, see above cases)
+        return;
     }
 
-    // Swap windows of desktops
-    swap_desktop_abs(current_index, new_index);
 
-    // Update current desktop index
-    workspace.currentDesktop = workspace.desktops[new_index];
+    // ==== Swap ==== //
+    swap_desktop_abs(current_index, new_index);                 // Swap windows of desktops
+    workspace.currentDesktop = workspace.desktops[new_index];   // Update current desktop index
+
+
+    // ==== Dynamic remove empty leading/trailing ==== //
+    if (doDynamicDesktopSwap) {
+
+        // If first desktop swapped back and Dynamic Desktop mode is on: remove empty
+        if (current_index == 0 && new_index == 1) {
+            if (count_windows_on_desktop_abs(current_index) == 0) {
+                workspace.removeDesktop(workspace.desktops[current_index]);
+            }
+
+            // If last desktop swapped back and Dynamic Desktop mode is on: remove empty
+        } else if (current_index == workspace.desktops.length-1 && new_index == workspace.desktops.length-2) {
+            if (count_windows_on_desktop_abs(current_index) == 0) {
+                workspace.removeDesktop(workspace.desktops[current_index]);
+            }
+        }
+    }
 }
 
 
