@@ -1,6 +1,6 @@
 # Swap/Add/Remove - Virtual Desktop Shortcuts
 
-<img src="logo/logo4_rect.png" height="180"/>
+<img src="logo/logo5_rect.png" height="180"/>
 
 Adds keyboard shortcuts to KWin for swapping, adding and removing virtual desktops.
 
