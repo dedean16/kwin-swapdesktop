@@ -86,7 +86,7 @@ function remove_current_desktop(relative_index) {
 }
 
 
-function swap_desktop_abs(index1, index2) {
+function swap_desktop_windows_abs(index1, index2, do_swap_all_screens) {
     // Checks all windows and swaps desktops at given indices (absolute)
     // Note: Doesn't check if desktops at those indices exist
 
@@ -98,12 +98,15 @@ function swap_desktop_abs(index1, index2) {
     var desktop1 = all_desktops[index1];
     var desktop2 = all_desktops[index2];
 
+    // Determine list of screens that participate in swapping
+    var screens_to_swap = do_swap_all_screens ? workspace.screens : [workspace.activeScreen];
+
     // Make lists of windows on desktop1 and desktop2
     for (var w = 0; w<all_windows.length; w++) {
         var window = all_windows[w];
-        if (window.desktops[0] == desktop1) {
+        if (window.desktops[0] == desktop1 && screens_to_swap.includes(window.output)) {
             desktop1_windows.push(window);
-        } else if (window.desktops[0] == desktop2) {
+        } else if (window.desktops[0] == desktop2 && screens_to_swap.includes(window.output)) {
             desktop2_windows.push(window);
         }
     }
@@ -114,7 +117,7 @@ function swap_desktop_abs(index1, index2) {
 }
 
 
-function swap_desktop(relative_index) {
+function swap_desktop(relative_index, do_swap_all_screens) {
     // Add desktop if required, swap desktops, focus swapped desktop
 
 
@@ -123,22 +126,22 @@ function swap_desktop(relative_index) {
     var new_index = current_index + relative_index;
 
     // Check if Dynamic Desktops mode is enabled. If enabled, empty desktops are added/removed automatically when swapping the first or last one.
-    var doInfiniteSwap = readConfig("infiniteSwap", true);
+    var do_infinite_swap = readConfig("infiniteSwap", true);
 
 
     // ==== Deal with edge cases ==== //
     // Add leading desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
-    if (new_index == -1 && doInfiniteSwap) {
+    if (new_index == -1 && do_infinite_swap) {
         add_desktop_abs(0);
         current_index++;
         new_index++;
 
     // Add trailing desktop to make swap possible, if required. (Or block at first/last if Dynamic Desktops is off.)
-    } else if (new_index == workspace.desktops.length && doInfiniteSwap) {
+    } else if (new_index == workspace.desktops.length && do_infinite_swap) {
         add_desktop_abs(workspace.desktops.length);
 
     // Swapping over first/last desktop is blocked when dynamic desktops is off
-    } else if ((new_index == -1 || new_index == workspace.desktops.length) && !doInfiniteSwap){
+    } else if ((new_index == -1 || new_index == workspace.desktops.length) && !do_infinite_swap){
         return;
 
     // Swapping to non-existing desktops is not supported (except optionally for index==-1 and index==last, see previous cases)
@@ -148,12 +151,12 @@ function swap_desktop(relative_index) {
 
 
     // ==== Swap ==== //
-    swap_desktop_abs(current_index, new_index);                 // Swap windows of desktops
+    swap_desktop_windows_abs(current_index, new_index, do_swap_all_screens);   // Swap windows of desktops
     workspace.currentDesktop = workspace.desktops[new_index];   // Update current desktop index
 
 
     // ==== Dynamic remove empty leading/trailing ==== //
-    if (doInfiniteSwap) {
+    if (do_infinite_swap) {
 
         // If first desktop swapped back and Dynamic Desktop mode is on: remove empty
         if (current_index == 0 && new_index == 1) {
@@ -173,26 +176,49 @@ function swap_desktop(relative_index) {
 
 if (registerShortcut) {    /* Check if the register function actually exists */
     
+    // === Swapping shortcuts - all screens === //
     registerShortcut("Swap windows with next desktop",
-                     "swapdesktop2: Swap current desktop with next one",
+                     "swapdesktop2: Swap current desktop with next one (all screens)",
                      "Meta+Shift+Alt+Right",
-                     function() {swap_desktop(1);});
+                     function() {swap_desktop(1, true);});
 
     registerShortcut("Swap windows with previous desktop",
-                     "swapdesktop2: Swap current desktop with previous one",
+                     "swapdesktop2: Swap current desktop with previous one (all screens)",
                      "Meta+Shift+Alt+Left",
-                     function() {swap_desktop(-1);});
+                     function() {swap_desktop(-1, true);});
 
     registerShortcut("Swap with above desktop",
-                     "swapdesktop2: Swap current desktop with one above",
+                     "swapdesktop2: Swap current desktop with one above (all screens)",
                      "Meta+Shift+Alt+Up",
-                     function() {swap_desktop(-workspace.desktopGridWidth);});
+                     function() {swap_desktop(-workspace.desktopGridWidth, true);});
 
     registerShortcut("Swap with below desktop",
-                     "swapdesktop2: Swap current desktop with one below",
+                     "swapdesktop2: Swap current desktop with one below (all screens)",
                      "Meta+Shift+Alt+Down",
-                     function() {swap_desktop(workspace.desktopGridWidth);});
+                     function() {swap_desktop(workspace.desktopGridWidth, true);});
 
+    // === Swapping shortcuts - current screen === //
+    registerShortcut("Swap windows with next desktop",
+                     "swapdesktop2: Swap current desktop with next one (current screen)",
+                     "Meta+Ctrl+Alt+Right",
+                     function() {swap_desktop(1, false);});
+
+    registerShortcut("Swap windows with previous desktop",
+                     "swapdesktop2: Swap current desktop with previous one (current screen)",
+                     "Meta+Ctrl+Alt+Left",
+                     function() {swap_desktop(-1, false);});
+
+    registerShortcut("Swap with above desktop",
+                     "swapdesktop2: Swap current desktop with one above (current screen)",
+                     "Meta+Ctrl+Alt+Up",
+                     function() {swap_desktop(-workspace.desktopGridWidth, false);});
+
+    registerShortcut("Swap with below desktop",
+                     "swapdesktop2: Swap current desktop with one below (current screen)",
+                     "Meta+Ctrl+Alt+Down",
+                     function() {swap_desktop(workspace.desktopGridWidth, false);});
+
+    // === Add/remove shortcuts === //
     registerShortcut("Add desktop after current",
                      "swapdesktop2: Add new desktop between current and next",
                      "Meta+Alt++",
@@ -212,4 +238,5 @@ if (registerShortcut) {    /* Check if the register function actually exists */
                      "swapdesktop2: Remove current desktop and move its windows to the previous",
                      "Meta+Alt+-",
                      function() {remove_current_desktop(-1);});
+
 }
