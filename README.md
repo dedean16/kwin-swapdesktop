@@ -22,11 +22,11 @@ These can be changed in System Settings → Global Shortcuts → KWin → (searc
 
 Quick demo video: https://www.youtube.com/watch?v=TOOlC8laRNQ
 
-## Infinite Swap mode
+### Infinite Swap mode
 
 Infinite Swap mode: Swap virtual desktops beyond the existing set of desktops, i.e. when swapping to the 0th/last+1 desktop, a new desktop will be added to make the swap possible. Swapping back from the first/last desktop will remove the leading/trailing desktop (if empty). This allows for a fast workflow where most virtual desktop operations can be achieved by a combination of swapping shortcuts and KDE's built-in desktop selection shortcuts (by default: Meta + Ctrl + Arrow Key), without needing to manually add or remove virtual desktops. Infinite Swap is enabled by default, but can be disabled in the configuration dialog of this script (System Settings → KWin Scripts → click the Configure button).
 
-## For developers
+### For developers
 
 Cleanup of leftover components can be done by loggin out/in and then running this kde cleanup command:
 
